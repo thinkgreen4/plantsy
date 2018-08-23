@@ -1,0 +1,169 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a style="margin: 0 20px" id="navbar-brand" href="/">Plantsy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navUnique" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Plants
+                </a>
+                <!--List of plants here-->
+
+                <div id="Plants" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {{#each plant}}
+                    <a class="plant_click dropdown-item" data-id={{id}} href="#">{{name}}</a>
+                    {{/each}}
+            </li>
+     
+               <li class="nav-item">
+                <a class="nav-link" id="navUnique" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="navUnique" href="#">F.A.Q</a>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary" type="submit">Search</button>
+            <button style="margin: 0 10px" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"
+                href="#">Add Plant</button>
+
+        </form>
+        </div>
+</nav>
+
+
+<div class="jumbotron">
+    <div class="container-fluid">
+        <img src="assets/plantsy.png" alt="logo" />
+        <h1> Plantsy Admin</h1>
+    </div>
+    
+
+
+</div>
+
+<hr>
+<button id="editModel" style="position: absolute; right: 110px;" type="button" data-id="" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-editmodal-lg"
+    href="#">Edit Plant</button>
+<hr>
+<br>
+<h1 class="text-center" style="padding: 0 100px">
+    <strong id="display_name">{{headPlant.name}}</strong>
+</h1>
+<br>
+<br>
+
+<h4 style="padding: 0 100px">
+    <strong>Description</strong>
+</h4>
+<hr>
+<p id="display_description" style="padding: 0 100px">{{headPlant.description}}</p>
+
+<hr>
+<hr>
+<hr>
+
+<h4 style="padding: 0 100px">
+    <strong>Instructions</strong>
+</h4>
+<hr>
+<p id="display_instructions" style="padding: 0 100px">{{headPlant.instructions}}</p>
+<br>
+<button id="deleteBtn" data-id={{headPlant.id}} style="position: absolute; right: 110px;" type="button" class="btn btn-primary" href="#">Delete Plant</button>
+<br>
+<br>
+
+<hr>
+<hr>
+<hr>
+<h4 style="padding: 0 100px">
+    <strong>QR code</strong>
+</h4>
+<hr>
+
+<div class="wrapper">
+    <img id="QRimg" src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg" id="qRCodeImg" alt="QR Code"
+        height="200" width="200">
+</div>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="margin: 0 20px" class="modal-title">Plant Name</h5>
+                <input type="text" class="form-control" id="Name">
+                    <button style="margin: 0 20px" type="button" class="btn btn-primary" onclick="uploadImg">Upload Image</button>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title">Categories</h5>
+                <select class="form-control" id="Categories">
+                    <option value="">Coming soon</option>
+                </select>
+            </div>
+
+            <div class="modal-body">
+                <h5 class="modal-title">Description</h5>
+                <textarea class="form-control" id="Description" rows="4"></textarea>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title">Instructions</h5>
+                <textarea class="form-control" id="Instructions" rows="4"></textarea>
+            </div>
+            <button id="addBtn" type="button" class="btn btn-primary">Add Plant</button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Edit Large modal -->
+
+<div class="modal fade bd-example-editmodal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+        
+                <h5 style="margin: 0 20px" class="modal-title">Plant Name</h5>
+                <input type="text" class="form-control" id="editName">
+                                <button style="margin: 0 20px" type="button" class="btn btn-primary" onclick="uploadImg">Upload Image</button>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title">Categories</h5>
+                <select class="form-control" id="Categories">
+                </select>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title">Description</h5>
+                <textarea class="form-control" id="editDescription" rows="4"></textarea>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title">Instructions</h5>
+                <textarea class="form-control" id="editInstructions" rows="4"></textarea>
+            </div>
+            <button id="editBtn" type="button" class="btn btn-primary">Edit Plant</button>
+        </div>
+    </div>
+</div>
+</div>

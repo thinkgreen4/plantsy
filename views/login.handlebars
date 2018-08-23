@@ -1,0 +1,142 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a style="margin: 0 20px" id="navbar-brand" href="/">Plantsy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navUnique" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                     Plants
+                </a>
+                <!--List of plants here-->
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Rose</a>
+                    <a class="dropdown-item" href="#">Tree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" id="navUnique" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" id="navUnique" href="#">F.A.Q</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Login</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary" type="submit">Search</button>
+            
+        </form>
+        </div>
+</nav>
+
+
+    <div class="jumbotron">
+        <div class="container-fluid">
+          <img src="assets/plantsy.png" alt="logo"/>
+            <h1> Plantsy</h1>
+        </div>
+    </div>
+    
+<hr>
+
+    <!--
+      <div class = "wrapper">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" href="#">Add Plant</button>
+      </div>
+    -->
+      <div class = "wrapper">
+          <img src="https://i.pinimg.com/originals/c2/9c/94/c29c94214bafbc1c2fcc0e458982f762.jpg" id="flowerImg" alt="QR Code" height="200" width="200">
+      </div>
+
+<hr>
+<hr>
+
+    <h4 style="padding: 0 100px"><strong>Description</strong></h4>
+        <hr>
+        <p style="padding: 0 100px">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+                   tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                   semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
+                   pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum,
+                   elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non
+                   enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque
+                   egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
+                   porttitor, facilisis luctus, metus
+        </p>
+
+        <hr>
+        <hr>
+        <hr>
+
+    <h4 style="padding: 0 100px"><strong>Instructions</strong></h4>
+        <hr>
+        <p style="padding: 0 100px">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+                   tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                   semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
+                   pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum,
+                   elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non
+                   enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque
+                   egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
+                   porttitor, facilisis luctus, metus
+        </p>
+
+        <hr>
+        <hr>
+        <hr>
+
+    <!--
+        <div class = "wrapper">
+            <img id="qRCodeImg" alt="QR Code" height="42" width="42">
+        </div>
+
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+
+        <div class = "wrapper">
+            <button type="button" class="btn btn-primary" onclick="printImg">QR Print</button>
+        </div>  
+      -->
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="margin: 0 20px" class="modal-title">Plant Name</h5>
+                <input type="text" class="form-control" id="Name" placeholder="Carnation">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <h5 class="modal-title">Categories</h5>
+                <select class="form-control" id="Categories">
+                    {{#each category}}
+                    <option value="{{dataValues.name}}">{{dataValues.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="modal-body">
+                <h5 class="modal-title">Description</h5>
+                <textarea class="form-control" id="Description" rows="4"></textarea>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title">Instructions</h5>
+                <textarea class="form-control" id="Instructions" rows="4"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="plantBtn" type="button" class="btn btn-primary">Add Plant</button>
+        </div>
+    </div>
+</div>
+</div>
